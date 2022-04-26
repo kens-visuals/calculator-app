@@ -37,7 +37,7 @@ function App() {
               : 'bg-three-bg-tertiary'
           }`}
         >
-          399,981s
+          399,981
         </div>
       </div>
     </div>
