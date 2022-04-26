@@ -2,6 +2,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      gridTemplateRows: {
+        layout: 'repeat(5, minmax(auto, 4rem))',
+      },
       fontFamily: {
         spartan: ['League Spartan', 'sans-serif'],
       },

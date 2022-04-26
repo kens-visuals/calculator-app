@@ -2,11 +2,12 @@ import { useState } from 'react';
 
 // components
 import Header from './components/Header';
+import Button from './components/Button';
 
 function App() {
   const [theme, setTheme] = useState('one');
+  const [num, setNum] = useState(0);
 
-  // DEL
   const text =
     theme === 'one'
       ? 'text-white'
@@ -24,7 +25,7 @@ function App() {
           : 'bg-three-bg-primary'
       }`}
     >
-      <div className="mx-auto grid w-[86%] grid-rows-[auto_auto_1fr] items-center gap-6">
+      <div className="mx-auto grid w-[86%] grid-rows-[3rem_5rem_26rem]  gap-6">
         <Header theme={theme} setTheme={setTheme} />
 
         <div
@@ -37,7 +38,62 @@ function App() {
               : 'bg-three-bg-tertiary'
           }`}
         >
-          399,981
+          <span>{num}</span>
+        </div>
+
+        <div
+          className={`grid grid-cols-4 grid-rows-layout content-center gap-3 rounded-lg px-6 py-3 ${
+            theme === 'one'
+              ? 'bg-one-bg-secondary'
+              : theme === 'two'
+              ? 'bg-two-bg-secondary'
+              : 'bg-three-bg-secondary'
+          }`}
+        >
+          <Button theme={theme} setNum={setNum}>
+            7
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            8
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            9
+          </Button>
+          <Button theme={theme} setNum={setNum} otherStyle del>
+            Del
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            4
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            5
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            6
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            +
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            1
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            2
+          </Button>
+          <Button theme={theme} setNum={setNum}>
+            3
+          </Button>
+          <Button theme={theme}>-</Button>
+          <Button theme={theme}>.</Button>
+          <Button theme={theme}>0</Button>
+          <Button theme={theme}>/</Button>
+          <Button theme={theme}>x</Button>
+          <Button theme={theme} otherStyle>
+            Reset
+          </Button>
+          <Button theme={theme} equal>
+            =
+          </Button>
         </div>
       </div>
     </div>
