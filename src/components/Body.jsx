@@ -53,7 +53,7 @@ export default function Body({ theme }) {
   return (
     <>
       <div
-        className={`w-full overflow-y-hidden overflow-x-scroll rounded-lg p-6 text-right text-4xl 
+        className={`w-full overflow-y-hidden overflow-x-scroll rounded-xl p-6 text-right text-4xl 
         ${text} ${bgTertiary}`}
       >
         {/* NOTE: Fix the design*/}
@@ -66,7 +66,7 @@ export default function Body({ theme }) {
       </div>
 
       <div
-        className={`grid grid-cols-4 grid-rows-layout content-center gap-3 rounded-lg px-6 py-3 ${bgSecondary}`}
+        className={`grid grid-cols-4 grid-rows-layout-1 content-evenly gap-3 rounded-xl p-6 md:gap-6 md:p-8 ${bgSecondary}`}
       >
         {/* NOTE: Version 2 */}
         {/* <div className="col-span-4 grid grid-flow-col grid-cols-4 grid-rows-layout-1 gap-3">
@@ -104,7 +104,12 @@ export default function Body({ theme }) {
         <DigitButton dispatch={dispatch} digit="0" theme={theme} />
 
         <OperationButton dispatch={dispatch} operation="/" theme={theme} />
-        <OperationButton dispatch={dispatch} operation="*" theme={theme} />
+        <OperationButton
+          dispatch={dispatch}
+          operation="*"
+          sign="x"
+          theme={theme}
+        />
 
         <ResetButton dispatch={dispatch} theme={theme} />
 

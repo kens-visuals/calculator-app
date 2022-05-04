@@ -43,10 +43,12 @@ export default function Header({ theme, setTheme }) {
 
   return (
     <header className="flex items-baseline justify-between">
-      <h1 className={`text-4xl font-semibold ${text}`}>calc</h1>
+      <h1 className={`text-4xl font-semibold tracking-wider ${text}`}>calc</h1>
 
       <div className="flex items-end gap-4">
-        <span className={`text-sm uppercase ${text}`}>Theme</span>
+        <span className={`text-sm uppercase tracking-widest ${text}`}>
+          Theme
+        </span>
 
         <div className="w-20">
           <div

@@ -17,9 +17,10 @@ function App() {
 
   return (
     <div
-      className={`grid min-h-screen grid-rows-[1fr_auto] py-20 font-spartan ${currTheme} md:p-0`}
+      className={`grid min-h-screen grid-rows-[1fr_auto] font-spartan ${currTheme}`}
     >
-      <div className="mx-auto grid w-[86%] max-w-xs grid-rows-[3rem_5rem_26rem] gap-6 md:content-center">
+      {/* grid-rows-[3rem_5rem_26rem] */}
+      <div className="mx-auto grid w-[87%] max-w-[34rem] grid-rows-[3rem_5.5rem_26rem] content-center gap-6 md:grid-rows-[3rem_8rem_30rem]">
         <Header theme={theme} setTheme={setTheme} />
 
         <Body theme={theme} />

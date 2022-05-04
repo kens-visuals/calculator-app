@@ -26,7 +26,7 @@ export default function DigitButton({ theme, dispatch }) {
   return (
     <button
       type="button"
-      className={`button  ${btnText} ${btnTheme} ${equalBtnStyle}`}
+      className={`button ${btnText} ${btnTheme} ${equalBtnStyle}`}
       onClick={() => dispatch({ type: ACTIONS.EVAL })}
     >
       =

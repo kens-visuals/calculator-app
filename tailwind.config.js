@@ -3,8 +3,8 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateRows: {
-        layout: 'repeat(5, minmax(auto, 4rem))',
-        'layout-1': 'repeat(3, minmax(auto, 4rem))',
+        // layout: '3rem, minmax(5rem 7rem), minmax(22rem, 28rem)',
+        'layout-1': 'repeat(5, minmax(auto, 4rem))',
       },
       fontFamily: {
         spartan: ['League Spartan', 'sans-serif'],

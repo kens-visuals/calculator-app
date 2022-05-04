@@ -15,7 +15,7 @@ export default function DigitButton({ theme, dispatch }) {
       ? 'text-two-text-primary'
       : 'text-three-text-primary';
 
-  const btnStyle = `text-lg uppercase 
+  const btnStyle = `text-lg md:text-2xl uppercase 
   ${
     theme === 'one'
       ? '!text-white bg-one-key-primary border-one-key-primary--shadow'
