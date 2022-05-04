@@ -4,6 +4,7 @@ module.exports = {
     extend: {
       gridTemplateRows: {
         layout: 'repeat(5, minmax(auto, 4rem))',
+        'layout-1': 'repeat(3, minmax(auto, 4rem))',
       },
       fontFamily: {
         spartan: ['League Spartan', 'sans-serif'],

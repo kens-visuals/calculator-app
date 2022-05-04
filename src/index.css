@@ -9,3 +9,9 @@
     transition: all 0.3s;
   }
 }
+
+@layer components {
+  .button {
+    @apply rounded-md border-b-4 pt-2 text-4xl;
+  }
+}

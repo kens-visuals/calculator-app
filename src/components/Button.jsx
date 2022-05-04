@@ -20,7 +20,7 @@ export default function Button({
       theme === 'one'
         ? '!text-white bg-one-key-primary border-one-key-primary--shadow'
         : theme === 'two'
-        ? '!text-two-text-primary bg-two-key-primary border-two-key-primary--shadow'
+        ? '!text-white bg-two-key-primary border-two-key-primary--shadow'
         : '!text-white bg-three-key-primary border-three-key-primary--shadow'
     }`;
 
@@ -29,13 +29,13 @@ export default function Button({
       theme === 'one'
         ? '!text-white bg-one-key-secondary border-one-key-secondary--shadow'
         : theme === 'two'
-        ? '!text-two-text-primary bg-two-key-secondary border-two-key-secondary--shadow'
+        ? '!text-white bg-two-key-secondary border-two-key-secondary--shadow'
         : '!text-black bg-three-key-secondary border-three-key-secondary--shadow'
     }`;
 
   return (
     <button
-      onClick={(e) => setNum(e.target.textContent)}
+      onClick={(e) => setNum((prevNum) => prevNum + e.target.textContent)}
       className={`rounded-md border-b-4 pt-2 text-4xl ${text} 
       ${otherStyle && btnStyle}
       ${equal && equalBtnStyle} ${
