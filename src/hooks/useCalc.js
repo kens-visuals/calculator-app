@@ -3,12 +3,12 @@ import { useReducer } from 'react';
 export const ACTIONS = {
   ADD_DIGIT: 'add-digit',
   CHOOSE_OPERATOR: 'choose-operator',
-  CLEAR: 'clear',
+  RESET: 'reset',
   DELETE_DIGIT: 'delete',
   EVAL: 'eval',
 };
 
-function evaluation({ currOperand, prevOperand, operation }) {
+const evaluation = function ({ currOperand, prevOperand, operation }) {
   let computation = '';
   const prev = parseFloat(prevOperand);
   const curr = parseFloat(currOperand);
@@ -33,7 +33,7 @@ function evaluation({ currOperand, prevOperand, operation }) {
   }
 
   return computation.toString();
-}
+};
 
 function reducer(state, { type, payload }) {
   switch (type) {
@@ -115,7 +115,7 @@ function reducer(state, { type, payload }) {
         currOperand: evaluation(state),
       };
 
-    case ACTIONS.CLEAR:
+    case ACTIONS.RESET:
       return {};
 
     default:

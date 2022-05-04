@@ -1,13 +1,12 @@
 import { ACTIONS } from '../../hooks/useCalc';
 
 export default function DigitButton({ theme, dispatch, digit }) {
-  const btnTheme = `${
+  const btnTheme =
     theme === 'one'
       ? 'border-one-key-tertiary--shadow bg-one-key-tertiary'
       : theme === 'two'
       ? 'border-two-key-tertiary--shadow bg-two-key-tertiary'
-      : 'border-three-key-tertiary--shadow bg-three-key-tertiary'
-  }`;
+      : 'border-three-key-tertiary--shadow bg-three-key-tertiary';
 
   const btnText =
     theme === 'one'

@@ -21,6 +21,22 @@ export default function Body({ theme }) {
       ? 'text-two-text-primary'
       : 'text-three-text-primary';
 
+  const bgSecondary = `${
+    theme === 'one'
+      ? 'bg-one-bg-secondary'
+      : theme === 'two'
+      ? 'bg-two-bg-secondary'
+      : 'bg-three-bg-secondary'
+  }`;
+
+  const bgTertiary = `${
+    theme === 'one'
+      ? 'bg-one-bg-tertiary'
+      : theme === 'two'
+      ? 'bg-two-bg-tertiary'
+      : 'bg-three-bg-tertiary'
+  }`;
+
   // NOTE: Version 2
   // const btnsNumbers = [7, 4, 1, 8, 5, 2, 9, 6, 3];
 
@@ -38,13 +54,7 @@ export default function Body({ theme }) {
     <>
       <div
         className={`w-full overflow-y-hidden overflow-x-scroll rounded-lg p-6 text-right text-4xl 
-        ${text} ${
-          theme === 'one'
-            ? 'bg-one-bg-tertiary'
-            : theme === 'two'
-            ? 'bg-two-bg-tertiary'
-            : 'bg-three-bg-tertiary'
-        }`}
+        ${text} ${bgTertiary}`}
       >
         {/* NOTE: Fix the design*/}
         <div className={`w-full bg-white text-red-500`}>
@@ -56,13 +66,7 @@ export default function Body({ theme }) {
       </div>
 
       <div
-        className={`grid grid-cols-4 grid-rows-layout content-center gap-3 rounded-lg px-6 py-3 ${
-          theme === 'one'
-            ? 'bg-one-bg-secondary'
-            : theme === 'two'
-            ? 'bg-two-bg-secondary'
-            : 'bg-three-bg-secondary'
-        }`}
+        className={`grid grid-cols-4 grid-rows-layout content-center gap-3 rounded-lg px-6 py-3 ${bgSecondary}`}
       >
         {/* NOTE: Version 2 */}
         {/* <div className="col-span-4 grid grid-flow-col grid-cols-4 grid-rows-layout-1 gap-3">
@@ -102,9 +106,9 @@ export default function Body({ theme }) {
         <OperationButton dispatch={dispatch} operation="/" theme={theme} />
         <OperationButton dispatch={dispatch} operation="*" theme={theme} />
 
-        <EqualButton dispatch={dispatch} theme={theme} />
-
         <ResetButton dispatch={dispatch} theme={theme} />
+
+        <EqualButton dispatch={dispatch} theme={theme} />
       </div>
     </>
   );
