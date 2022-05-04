@@ -20,19 +20,6 @@ export default function Body({ theme }) {
       : 'bg-three-bg-secondary'
   }`;
 
-  // NOTE: Version 2
-  // const btnsNumbers = [7, 4, 1, 8, 5, 2, 9, 6, 3];
-
-  // const btnsNumbersDisplay = btnsNumbers.map((item, index) => (
-  //   <button
-  //     key={index}
-
-  //     className={`button ${btnText} ${btnTheme}`}
-  //   >
-  //     {item}
-  //   </button>
-  // ));
-
   return (
     <>
       <Display
@@ -45,20 +32,6 @@ export default function Body({ theme }) {
       <div
         className={`grid grid-cols-4 grid-rows-layout-1 content-evenly gap-3 rounded-xl p-6 md:gap-6 md:p-8 ${bgSecondary}`}
       >
-        {/* NOTE: Version 2 */}
-        {/* <div className="col-span-4 grid grid-flow-col grid-cols-4 grid-rows-layout-1 gap-3">
-       {btnsNumbersDisplay}
-       <button className={`button ${(btnText, btnTheme, btnStyle)}`}>
-         Del
-       </button>
-       <button className={`button 'col-span-2' ${(btnText, btnTheme)}`}>
-         +
-       </button>
-       <button className={`button 'col-span-2' ${(btnText, btnTheme)}`}>
-         -
-       </button>
-      </div> */}
-
         <DigitButton dispatch={dispatch} digit="7" theme={theme} />
         <DigitButton dispatch={dispatch} digit="8" theme={theme} />
         <DigitButton dispatch={dispatch} digit="9" theme={theme} />
