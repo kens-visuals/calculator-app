@@ -3,10 +3,10 @@ import { ACTIONS } from '../../hooks/useCalc';
 export default function DigitButton({ theme, dispatch }) {
   const btnTheme =
     theme === 'one'
-      ? 'border-one-key-tertiary--shadow bg-one-key-tertiary'
+      ? 'border-one-key-tertiary--shadow bg-one-key-tertiary hover:bg-one-key-secondary--shadow'
       : theme === 'two'
-      ? 'border-two-key-tertiary--shadow bg-two-key-tertiary'
-      : 'border-three-key-tertiary--shadow bg-three-key-tertiary';
+      ? 'border-two-key-tertiary--shadow bg-two-key-tertiary hover:bg-two-key-secondary--shadow'
+      : 'border-three-key-tertiary--shadow bg-three-key-tertiary hover:bg-three-key-secondary--shadow';
 
   const btnText =
     theme === 'one'

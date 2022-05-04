@@ -18,10 +18,10 @@ export default function DigitButton({ theme, dispatch }) {
   const btnStyle = `text-lg md:text-2xl uppercase 
   ${
     theme === 'one'
-      ? '!text-white bg-one-key-primary border-one-key-primary--shadow'
+      ? '!text-white bg-one-key-primary border-one-key-primary--shadow hover:bg-one-key-primary--shadow'
       : theme === 'two'
-      ? '!text-white bg-two-key-primary border-two-key-primary--shadow'
-      : '!text-white bg-three-key-primary border-three-key-primary--shadow'
+      ? '!text-white bg-two-key-primary border-two-key-primary--shadow hover:bg-two-key-primary--shadow'
+      : '!text-white bg-three-key-primary border-three-key-primary--shadow hover:bg-three-key-primary--shadow'
   }`;
 
   return (
