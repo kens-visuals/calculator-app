@@ -10,7 +10,7 @@ import ResetButton from './buttons/ResetButton';
 import EqualButton from './buttons/EqualButton';
 
 export default function Body({ theme }) {
-  const { dispatch } = useCalc();
+  const { currOperand, prevOperand, operation, dispatch } = useCalc();
 
   const bgSecondary = `${
     theme === 'one'
@@ -35,7 +35,12 @@ export default function Body({ theme }) {
 
   return (
     <>
-      <Display theme={theme} />
+      <Display
+        theme={theme}
+        currOperand={currOperand}
+        prevOperand={prevOperand}
+        operation={operation}
+      />
 
       <div
         className={`grid grid-cols-4 grid-rows-layout-1 content-evenly gap-3 rounded-xl p-6 md:gap-6 md:p-8 ${bgSecondary}`}

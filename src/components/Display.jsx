@@ -1,14 +1,14 @@
 import React from 'react';
 
-// hooks
-import useCalc from '../hooks/useCalc';
-
 // helpers
 import { formatOperand } from '../helpers';
 
-export default function Display({ theme }) {
-  const { currOperand, prevOperand, operation } = useCalc();
-
+export default function Display({
+  theme,
+  currOperand,
+  prevOperand,
+  operation,
+}) {
   const text =
     theme === 'one'
       ? 'text-white'

@@ -3,7 +3,6 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateRows: {
-        // layout: '3rem, minmax(5rem 7rem), minmax(22rem, 28rem)',
         'layout-1': 'repeat(5, minmax(auto, 4rem))',
       },
       fontFamily: {
