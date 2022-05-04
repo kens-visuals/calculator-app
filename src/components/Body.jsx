@@ -2,31 +2,15 @@
 import useCalc from '../hooks/useCalc';
 
 // components
+import Display from './Display';
 import DigitButton from './buttons/DigitButton';
 import OperationButton from './buttons/OperationButton';
 import DeleteButton from './buttons/DeleteButton';
 import ResetButton from './buttons/ResetButton';
 import EqualButton from './buttons/EqualButton';
 
-// helpers
-import { formatOperand } from '../helpers';
-
 export default function Body({ theme }) {
-  const { currOperand, prevOperand, operation, dispatch } = useCalc();
-
-  const text =
-    theme === 'one'
-      ? 'text-white'
-      : theme === 'two'
-      ? 'text-two-text-primary'
-      : 'text-three-text-primary';
-
-  const calcedText =
-    theme === 'one'
-      ? 'border-one-key-primary text-one-key-secondary'
-      : theme === 'two'
-      ? 'border-two-key-primary text-two-key-secondary'
-      : 'border-three-key-primary text-three-key-secondary';
+  const { dispatch } = useCalc();
 
   const bgSecondary = `${
     theme === 'one'
@@ -34,14 +18,6 @@ export default function Body({ theme }) {
       : theme === 'two'
       ? 'bg-two-bg-secondary'
       : 'bg-three-bg-secondary'
-  }`;
-
-  const bgTertiary = `${
-    theme === 'one'
-      ? 'bg-one-bg-tertiary'
-      : theme === 'two'
-      ? 'bg-two-bg-tertiary'
-      : 'bg-three-bg-tertiary'
   }`;
 
   // NOTE: Version 2
@@ -59,20 +35,7 @@ export default function Body({ theme }) {
 
   return (
     <>
-      <div
-        className={`grid w-full grid-rows-[1.5rem_1fr] content-center gap-2 overflow-y-hidden overflow-x-scroll rounded-xl p-6 text-right md:gap-4 md:p-8 ${bgTertiary}`}
-      >
-        <div className={`w-full rounded-sm border-b-2 ${calcedText}`}>
-          <span>
-            {formatOperand(prevOperand)} {operation}{' '}
-            {formatOperand(currOperand)}
-          </span>
-        </div>
-
-        <span className={`text-4xl md:text-6xl ${text}`}>
-          {formatOperand(currOperand) || <span>&nbsp;</span>}
-        </span>
-      </div>
+      <Display theme={theme} />
 
       <div
         className={`grid grid-cols-4 grid-rows-layout-1 content-evenly gap-3 rounded-xl p-6 md:gap-6 md:p-8 ${bgSecondary}`}
