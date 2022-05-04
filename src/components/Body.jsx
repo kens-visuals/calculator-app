@@ -21,6 +21,13 @@ export default function Body({ theme }) {
       ? 'text-two-text-primary'
       : 'text-three-text-primary';
 
+  const calcedText =
+    theme === 'one'
+      ? 'border-one-key-primary text-one-key-secondary'
+      : theme === 'two'
+      ? 'border-two-key-primary text-two-key-secondary'
+      : 'border-three-key-primary text-three-key-secondary';
+
   const bgSecondary = `${
     theme === 'one'
       ? 'bg-one-bg-secondary'
@@ -53,16 +60,18 @@ export default function Body({ theme }) {
   return (
     <>
       <div
-        className={`w-full overflow-y-hidden overflow-x-scroll rounded-xl p-6 text-right text-4xl 
-        ${text} ${bgTertiary}`}
+        className={`grid w-full grid-rows-[1.5rem_1fr] content-center gap-2 overflow-y-hidden overflow-x-scroll rounded-xl p-6 text-right md:gap-4 md:p-8 ${bgTertiary}`}
       >
-        {/* NOTE: Fix the design*/}
-        <div className={`w-full bg-white text-red-500`}>
+        <div className={`w-full rounded-sm border-b-2 ${calcedText}`}>
           <span>
-            {formatOperand(prevOperand)} {operation}
+            {formatOperand(prevOperand)} {operation}{' '}
+            {formatOperand(currOperand)}
           </span>
         </div>
-        <span>{formatOperand(currOperand)}</span>
+
+        <span className={`text-4xl md:text-6xl ${text}`}>
+          {formatOperand(currOperand) || <span>&nbsp;</span>}
+        </span>
       </div>
 
       <div

@@ -7,6 +7,7 @@ export default function DigitButton({ theme, dispatch }) {
       : theme === 'two'
       ? 'border-two-key-tertiary--shadow bg-two-key-tertiary'
       : 'border-three-key-tertiary--shadow bg-three-key-tertiary';
+
   const btnText =
     theme === 'one'
       ? 'text-one-text-primary'
