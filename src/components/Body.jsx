@@ -1,125 +1,18 @@
-import { useReducer } from 'react';
+// hooks
+import useCalc from '../hooks/useCalc';
 
 // components
-import DigitButton from './DigitButton';
-import OperationButton from './OperationButton';
+import DigitButton from './buttons/DigitButton';
+import OperationButton from './buttons/OperationButton';
+import DeleteButton from './buttons/DeleteButton';
+import ResetButton from './buttons/ResetButton';
+import EqualButton from './buttons/EqualButton';
 
-export const ACTIONS = {
-  ADD_DIGIT: 'add-digit',
-  CHOOSE_OPERATOR: 'choose-operator',
-  CLEAR: 'clear',
-  DELETE_DIGIT: 'delete',
-  EVAL: 'eval',
-};
-
-function evaluation({ currOperand, prevOperand, operation }) {
-  let computation = '';
-  const prev = parseFloat(prevOperand);
-  const curr = parseFloat(currOperand);
-
-  if (isNaN(prev) || isNaN(curr)) return '';
-
-  // eslint-disable-next-line default-case
-  switch (operation) {
-    case '+':
-      computation = prev + curr;
-      break;
-    case '-':
-      computation = prev - curr;
-      break;
-    case '*':
-      computation = prev * curr;
-      break;
-    case '/':
-      computation = prev / curr;
-      break;
-    // default:
-    //   return '';
-  }
-
-  return computation.toString();
-}
-
-function reducer(state, { type, payload }) {
-  switch (type) {
-    case ACTIONS.ADD_DIGIT:
-      if (state.overwrite) {
-        return {
-          ...state,
-          currOperand: payload.digit,
-          overwrite: false,
-        };
-      }
-      if (payload.digit === '0' && state.currOperand === '0') return state;
-      if (
-        payload.digit === '.' &&
-        state.currOperand &&
-        state.currOperand.includes('.')
-      ) {
-        return state;
-      }
-      return {
-        ...state,
-        currOperand: `${state.currOperand || ''}${payload.digit}`,
-      };
-
-    case ACTIONS.CHOOSE_OPERATOR:
-      if (state.currOperand == null && state.prevOperand == null) return state;
-
-      if (state.currOperand == null) {
-        return {
-          ...state,
-          operation: payload.operation,
-        };
-      }
-
-      if (state.prevOperand == null) {
-        return {
-          ...state,
-          operation: payload.operation,
-          prevOperand: state.currOperand,
-          currOperand: null,
-        };
-      }
-
-      return {
-        ...state,
-        prevOperand: evaluation(state),
-        operation: payload.operation,
-        currOperand: null,
-      };
-
-    case ACTIONS.CLEAR:
-      return {};
-
-    case ACTIONS.EVAL:
-      if (
-        state.operation == null ||
-        state.currOperand == null ||
-        state.prevOperand == null
-      )
-        return state;
-
-      return {
-        ...state,
-        overwrite: true,
-        operation: null,
-        prevOperand: null,
-        currOperand: evaluation(state),
-      };
-
-    default:
-      return state;
-  }
-}
+// helpers
+import { formatOperand } from '../helpers';
 
 export default function Body({ theme }) {
-  const [{ currOperand, prevOperand, operation }, dispatch] = useReducer(
-    reducer,
-    {}
-  );
-
-  console.log(currOperand, prevOperand, operation);
+  const { currOperand, prevOperand, operation, dispatch } = useCalc();
 
   const text =
     theme === 'one'
@@ -127,39 +20,6 @@ export default function Body({ theme }) {
       : theme === 'two'
       ? 'text-two-text-primary'
       : 'text-three-text-primary';
-
-  const btnTheme = `${
-    theme === 'one'
-      ? 'border-one-key-tertiary--shadow bg-one-key-tertiary'
-      : theme === 'two'
-      ? 'border-two-key-tertiary--shadow bg-two-key-tertiary'
-      : 'border-three-key-tertiary--shadow bg-three-key-tertiary'
-  }`;
-
-  const btnText =
-    theme === 'one'
-      ? 'text-one-text-primary'
-      : theme === 'two'
-      ? 'text-two-text-primary'
-      : 'text-three-text-primary';
-
-  const btnStyle = `text-lg uppercase 
-    ${
-      theme === 'one'
-        ? '!text-white bg-one-key-primary border-one-key-primary--shadow'
-        : theme === 'two'
-        ? '!text-white bg-two-key-primary border-two-key-primary--shadow'
-        : '!text-white bg-three-key-primary border-three-key-primary--shadow'
-    }`;
-
-  const equalBtnStyle = `col-span-2 
-    ${
-      theme === 'one'
-        ? '!text-white bg-one-key-secondary border-one-key-secondary--shadow'
-        : theme === 'two'
-        ? '!text-white bg-two-key-secondary border-two-key-secondary--shadow'
-        : '!text-white bg-three-key-secondary border-three-key-secondary--shadow'
-    }`;
 
   // NOTE: Version 2
   // const btnsNumbers = [7, 4, 1, 8, 5, 2, 9, 6, 3];
@@ -186,13 +46,13 @@ export default function Body({ theme }) {
             : 'bg-three-bg-tertiary'
         }`}
       >
-        {/* NOTE: */}
+        {/* NOTE: Fix the design*/}
         <div className={`w-full bg-white text-red-500`}>
           <span>
-            {prevOperand} {operation}
+            {formatOperand(prevOperand)} {operation}
           </span>
         </div>
-        <span>{currOperand}</span>
+        <span>{formatOperand(currOperand)}</span>
       </div>
 
       <div
@@ -222,12 +82,7 @@ export default function Body({ theme }) {
         <DigitButton dispatch={dispatch} digit="8" theme={theme} />
         <DigitButton dispatch={dispatch} digit="9" theme={theme} />
 
-        <OperationButton
-          del
-          dispatch={dispatch}
-          operation="Del"
-          theme={theme}
-        />
+        <DeleteButton dispatch={dispatch} theme={theme} />
 
         <DigitButton dispatch={dispatch} digit="4" theme={theme} />
         <DigitButton dispatch={dispatch} digit="5" theme={theme} />
@@ -247,19 +102,9 @@ export default function Body({ theme }) {
         <OperationButton dispatch={dispatch} operation="/" theme={theme} />
         <OperationButton dispatch={dispatch} operation="*" theme={theme} />
 
-        <button
-          onClick={() => dispatch({ type: ACTIONS.CLEAR })}
-          className={`button col-span-2 ${btnText} ${btnTheme} ${btnStyle}`}
-        >
-          Reset
-        </button>
+        <EqualButton dispatch={dispatch} theme={theme} />
 
-        <button
-          onClick={() => dispatch({ type: ACTIONS.EVAL })}
-          className={`button  ${btnText} ${btnTheme} ${equalBtnStyle}`}
-        >
-          =
-        </button>
+        <ResetButton dispatch={dispatch} theme={theme} />
       </div>
     </>
   );

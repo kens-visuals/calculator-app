@@ -1,4 +1,4 @@
-import { ACTIONS } from './Body';
+import { ACTIONS } from '../../hooks/useCalc';
 
 export default function DigitButton({ theme, dispatch, digit }) {
   const btnTheme = `${

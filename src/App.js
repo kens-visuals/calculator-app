@@ -3,7 +3,6 @@ import { useState } from 'react';
 // components
 import Header from './components/Header';
 import Body from './components/Body';
-import Button from './components/Button'; // DEL
 
 function App() {
   const [theme, setTheme] = useState('one');
