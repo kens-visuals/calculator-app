@@ -3,10 +3,10 @@ import { ACTIONS } from '../../hooks/useCalc';
 export default function OperationButton({ sign, theme, dispatch, operation }) {
   const btnTheme =
     theme === 'one'
-      ? 'border-one-key-tertiary--shadow bg-one-key-tertiary hover:bg-one-key-tertiary--shadow'
+      ? 'border-one-key-tertiary--shadow bg-one-key-tertiary lg:hover:bg-one-key-tertiary--shadow'
       : theme === 'two'
-      ? 'border-two-key-tertiary--shadow bg-two-key-tertiary hover:bg-two-key-tertiary--shadow'
-      : 'border-three-key-tertiary--shadow bg-three-key-tertiary hover:bg-three-key-tertiary--shadow';
+      ? 'border-two-key-tertiary--shadow bg-two-key-tertiary lg:hover:bg-two-key-tertiary--shadow'
+      : 'border-three-key-tertiary--shadow bg-three-key-tertiary lg:hover:bg-three-key-tertiary--shadow';
 
   const btnText =
     theme === 'one'
