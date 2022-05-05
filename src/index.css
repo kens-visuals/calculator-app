@@ -8,6 +8,11 @@
   *::after {
     transition: all 0.3s;
   }
+
+  body {
+    min-height: 100vh;
+    font-family: 'League Spartan', sans-serif;
+  }
 }
 
 @layer components {
