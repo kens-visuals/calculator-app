@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Frontend Mentor - Calculator App Solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Calculator App Challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29).
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+  - [Useful resources](#useful-resources)
+- [Author's Links](#authors-links)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Users should be able to:
 
-### `npm test`
+- See the size of the elements adjust based on their device's screen size
+- Perform mathmatical operations like addition, subtraction, multiplication, and division
+- Adjust the color theme based on their preference
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Screenshot
 
-### `npm run build`
+![screenshot](./screenshot.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Links
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Live Site URL: [https://kens-visuals.github.io/calculator-app/](https://kens-visuals.github.io/calculator-app/)
+- Solution URL: [TO_BE_UPDATED](TO_BE_UPDATED)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## My process
 
-### `npm run eject`
+### Built with
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- React
+  - hooks: useState, useReducer
+- Tailwind CSS
+- Semantic HTML5 markup
+- CSS Flexbox
+- CSS Grid
+- Mobile-first workflow
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### What I learned
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+One of my favorite projects that and a project that I wanted to create since day one of learning web development. It feels ten times cooler because now I'm built it with modern tools such as: `React`, `TailwindCSS`, etc. `TailwindCSS` came in handy to make all the themes and change the colors easily. I feel like every other option out there, such as using `CSS :root variables` would've made the matter a lot harder than it is. What comes to the main functionality of the app, I was planning on making it with just `useState`, but once I managed to do that pretty easily, I wanted to make this a bit more challenging. So, I went to research `useReducer`, after a bunch of videos, articles and reading the docs, I managed to build it with just `useReducer`. Will definitely use `useReducer` in the upcoming projects. As an addition I added a small section in the main display, that will show the previous number, current number and the operation, so the user doesn't have to guess what's happening behind the scenes. I hope you'll enjoy using it as much as I enjoyed coding it!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Useful resources
 
-## Learn More
+- [useReducer from React's new docs](https://beta.reactjs.org/apis/usereducer) - As of 05/04/2022 this React doc is in beta mode, yet it's fresh and cool to play with and learn.
+- [useReducer article](https://medium.com/gitconnected/reuse-reduce-usereducer-5f11f2dd1e98) - A cool article that helped me to get started with useReducer.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Author's Links
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Medium - [@kens_visuals](https://medium.com/@kens_visuals)
+- CodePen - [@kens-visuals](https://codepen.io/kens-visuals)
+- Codewars - [@kens_visuals](https://www.codewars.com/users/kens_visuals)
+- Frontend Mentor - [@kens-visuals](https://www.frontendmentor.io/profile/kens-visuals)
